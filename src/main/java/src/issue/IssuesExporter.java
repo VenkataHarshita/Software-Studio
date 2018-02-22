@@ -9,20 +9,20 @@ import java.util.Scanner;
 
 public class IssuesExporter {
 
-    public static void main(String[] args) throws IOException {
+    public static void main() throws IOException {
         
         PrintWriter o = new PrintWriter(new FileWriter("Issues.txt"));
         
         
         //IssueExporter obj=new IssueExporter();
-        System.out.println("Enter your username: ");
-        Scanner scanner1 = new Scanner(System.in);
-        String username = scanner1.nextLine();
-        System.out.println("Enter your password: ");
-        String password = scanner1.nextLine();
+       // System.out.println("Enter your username: ");
+       // Scanner scanner1 = new Scanner(System.in);
+        //String username = scanner1.nextLine();
+        //System.out.println("Enter your password: ");
+        //String password = scanner1.nextLine();
         
-        o.println(username);
-        o.println(password);
+       // o.println(username);
+        //o.println(password);
         
         
         Issue i1 = new Issue();
@@ -42,7 +42,7 @@ public class IssuesExporter {
         System.out.println(one.size());
         o.close();        
         // TODO Auto-generated method stub
-        scanner1.close();
+       // scanner1.close();
     }
 
 }
