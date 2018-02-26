@@ -18,8 +18,18 @@ public class IssueTest {
 		
 		issue1.setId(76);
 		issue2.setId(76);
+		issue1.setState("true");
+		issue1.setTitle("hi");
+		issue1.setBody("welcome");
+		issue1.setNumber(100);
+		issue1.setUser(u1);
+	issue1.setAssignee(u2);
+	issue1.setClosedAt(null);
+	issue1.setCreatedAt(null);
+			
 		
 		u1.setLogin("hi");
+		u1.setId(99);
 		u2.setLogin("hi");
 		
 		assertTrue(issue1.equals(issue2));

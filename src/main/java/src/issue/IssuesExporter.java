@@ -44,6 +44,5 @@ public class IssuesExporter {
         // TODO Auto-generated method stub
        // scanner1.close();
     }
-
 }
 
