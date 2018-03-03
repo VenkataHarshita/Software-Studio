@@ -36,7 +36,7 @@ public class IssueTest {
 		assertTrue(issue1.equals(issue1));
 		assertTrue(issue1.hashCode()==issue2.hashCode());
 		System.out.println(issue1.toString());
-		assertEquals("Issue [number=0, id=76, state=null, title=null, body=null, createdAt=null, closedAt=null, user=null, assignee=null]",issue1.toString());
+		assertEquals("Issue [number=100, id=76, state=true, title=hi, body=welcome, createdAt=null, closedAt=null, user=User [login=hi, id=99], assignee=User [login=hi, id=0]]",issue1.toString());
 		System.out.println(issue1);
 	}
 		

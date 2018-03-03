@@ -9,6 +9,7 @@ import com.google.gson.reflect.TypeToken;
 
 
 public class IssueParser {
+	
 
 	public List<Issue> parseIssues(String input) {
 		
