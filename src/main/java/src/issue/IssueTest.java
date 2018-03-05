@@ -13,6 +13,7 @@ public class IssueTest {
 	User u1=new User();
 	User u2=new User();
 	
+	
 	@Test
 	public void testEquals()  {
 		
