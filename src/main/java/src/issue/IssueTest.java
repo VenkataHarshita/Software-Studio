@@ -50,6 +50,40 @@ public class IssueTest {
 			assertTrue(u1.hashCode()==u2.hashCode());
 			IssuesExporter.main();
 		}
+		
+		@Test
+		public void testEqualsTo(){
+			User user1=new User();
+			User user2=new User();
+			user1.setId(42);
+			user2.setId(42);
+			assertEquals(0,user1.compareTo(user2));
+			assertTrue(user1.equals(user2));
+			
+		}
+		
+		
+		@Test
+		public void testGreater(){
+			User user1=new User();
+			User user2=new User();
+			user1.setId(47);
+			user2.setId(42);
+			assertEquals(1,user1.compareTo(user2));
+			
+		}
+			
+		@Test
+		public void testLessThan(){
+			User user1=new User();
+				User user2=new User();
+				user1.setId(38);
+				user2.setId(42);
+				assertEquals(-1,user1.compareTo(user2));
+				
+			}
+			
+		
 
 		
 		
