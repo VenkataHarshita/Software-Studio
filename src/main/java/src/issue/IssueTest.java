@@ -4,93 +4,101 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.io.IOException;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class IssueTest {
+
+	Issue i1 = new Issue();
+	Issue i2 = new Issue();
+	User u1 = new User();
+	User u2 = new User();
 	
-	Issue issue1=new Issue();
-	Issue issue2=new Issue();
-	User u1=new User();
-	User u2=new User();
-	
-	
-	@Test
-	public void testEquals()  {
-		
-		issue1.setId(76);
-		issue2.setId(76);
-		issue1.setState("true");
-		issue1.setTitle("hi");
-		issue1.setBody("welcome");
-		issue1.setNumber(100);
-		issue1.setUser(u1);
-	issue1.setAssignee(u2);
-	issue1.setClosedAt(null);
-	issue1.setCreatedAt(null);
-			
-		
-		u1.setLogin("hi");
-		u1.setId(99);
-		u2.setLogin("hi");
-		
-		assertTrue(issue1.equals(issue2));
-		assertTrue(issue1.equals(issue1));
-		assertTrue(issue1.hashCode()==issue2.hashCode());
-		System.out.println(issue1.toString());
-		assertEquals("Issue [number=100, id=76, state=true, title=hi, body=welcome, createdAt=null, closedAt=null, user=User [login=hi, id=99], assignee=User [login=hi, id=0]]",issue1.toString());
-		System.out.println(issue1);
+	@Before
+	public void Set() throws Exception {
+
+		u1.setId(50);
+		u2.setId(50);
+		u1.setLogin("harshita");
+		u2.setLogin("hyma");
+
+		i1.setId(6);
+		i1.setNumber(5);
+		i1.setState("open");
+		i1.setBody("hello");
+		i1.setCreatedAt("");
+		i1.setClosedAt("");
+		i1.setUser(u1);
+		i1.setAssignee(u2);
+		i1.setTitle("welcome");
+
+		i2.setId(6);
+		i2.setNumber(5);
+		i2.setState("open");
+		i2.setBody("hello");
+		i2.setCreatedAt("");
+		i2.setClosedAt("");
+		i2.setUser(u2);
+		i2.setAssignee(u1);
+		i2.setTitle("welcome");
+
 	}
-		
-		@Test
-		public void testUserEquals(){
-			assertTrue(u1.equals(u2));
-		}
-		@Test
-		public void testUserHashcode() throws IOException{
-			assertTrue(u1.hashCode()==u2.hashCode());
-			IssuesExporter.main();
-		}
-		
-		@Test
-		public void testEqualsTo(){
-			User user1=new User();
-			User user2=new User();
-			user1.setId(42);
-			user2.setId(42);
-			assertEquals(0,user1.compareTo(user2));
-			assertTrue(user1.equals(user2));
-			
-		}
-		
-		
-		@Test
-		public void testGreater(){
-			User user1=new User();
-			User user2=new User();
-			user1.setId(47);
-			user2.setId(42);
-			assertEquals(1,user1.compareTo(user2));
-			
-		}
-			
-		@Test
-		public void testLessThan(){
-			User user1=new User();
-				User user2=new User();
-				user1.setId(38);
-				user2.setId(42);
-				assertEquals(-1,user1.compareTo(user2));
-				
-			}
-			
-		
 
+	@Test
+	public void testEquals() {
+		assertTrue(i1.equals(i2));
+	}
+
+	@Test
+	public void testHashCode() {
+		assertTrue(i1.hashCode() == i2.hashCode());
+	}
+
+	@Test
+	public void testUserEquals() {
+		assertTrue(u1.equals(u2));
+	}
+
+	@Test
+	public void testUserHashcode() throws IOException {
+		assertTrue(u1.hashCode() == u2.hashCode());
 		
-		
-		
-		
-		
-		
+	}
+
+	@Test
+	public void testToString() {
+
+		assertEquals(
+				"Issue [number=5, id=6, state=open, title=welcome, body=hello, createdAt=, closedAt=, user=User [login=harshita, id=50], assignee=User [login=hyma, id=50]]",
+				i1.toString());
+
+	}
+
+	@Test
+	public void testEqualsTo() {
+
+		i1.setId(42);
+		i2.setId(42);
+		assertEquals(0, i1.compareTo(i2));
+		assertTrue(i1.equals(i2));
+
+	}
+
+	@Test
+	public void testGreater() {
+		i1.setId(47);
+		i2.setId(42);
+		assertEquals(1, i1.compareTo(i2));
+
+	}
+
+	@Test
+	public void testLessThan() {
+
+		i1.setId(38);
+		i2.setId(42);
+		assertEquals(-1, i1.compareTo(i2));
+
+	}
+
 }
-
-
