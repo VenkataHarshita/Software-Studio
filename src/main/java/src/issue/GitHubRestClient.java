@@ -26,7 +26,7 @@ public class GitHubRestClient {
     public static void main(String[] args) {
         GitHubRestClient prototype = new GitHubRestClient();
         //IMPORTANT: don't commit your username and password to your repo!!!
-        String json = prototype.requestIssues("VenkataHarshita", "K0mandur1");
+        String json = prototype.requestIssues("", "");
         System.out.println(json);
     }
 
@@ -49,11 +49,10 @@ public class GitHubRestClient {
         localContext.setAuthCache(authCache);
 
         //TODO adjust the URI to match your repo name
-        HttpGet httpget = new HttpGet("/repos/SoftwareStudioSpring2018/githubapi-issues-VenkataHarshita.git");
-
+        HttpGet httpget = new HttpGet("/repos/SoftwareStudioSpring2018/githubapi-issues-VenkataHarshita/issues");
         try {
             CloseableHttpResponse response = httpclient.execute(target, httpget, localContext);
-            System.out.println(response.getStatusLine()); 
+            System.out.println(response.getStatusLine());
             //TODO check for status 200 before proceeding
 
             HttpEntity entity = response.getEntity();
