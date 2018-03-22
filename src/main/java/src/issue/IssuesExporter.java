@@ -2,8 +2,10 @@ package issue;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,6 +13,11 @@ public class IssuesExporter {
 
 	public static void main(String[] args) throws IOException {
 
+		IssuesExporter i = new IssuesExporter();
+		i.generateIssues();
+	}
+
+	public void generateIssues() throws IOException {
 		PrintWriter o = new PrintWriter(new FileWriter("Issues.txt"));
 
 		System.out.println("Enter your username: ");
@@ -18,18 +25,23 @@ public class IssuesExporter {
 		String username = scanner1.nextLine();
 		System.out.println("Enter your password: ");
 		String password = scanner1.nextLine();
-
-		o.println(username);
-		o.println(password);
 		GitHubRestClient client = new GitHubRestClient();
-		String json = client.requestIssues(username, password);
+
+		String json = client.requestIssues(username, password, "open");
+		String json1 = client.requestIssues(username, password, "closed");
 
 		IssueParser parser = new IssueParser();
-		List<Issue> issues = parser.parseIssues(json);
 
-		o.println(issues);
+		List<Issue> closedissues = parser.parseIssues(json1);
+		List<Issue> openissues = parser.parseIssues(json);
+		openissues.addAll(closedissues);
+		Collections.sort(openissues);
 
-		System.out.println("the size is" + issues.size());
+		for (Issue issue : openissues) {
+			o.println(issue);
+		}
+
+		System.out.println("the size is" + openissues.size());
 		o.close();
 
 	}
