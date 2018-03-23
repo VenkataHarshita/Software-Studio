@@ -22,9 +22,9 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 public class GitHubRestClient {
-	
+
 	private static String BASE_URI = "/repos/SoftwareStudioSpring2018/githubapi-issues-VenkataHarshita/issues";
-	
+
 	public static void main(String[] args) {
 		GitHubRestClient prototype = new GitHubRestClient();
 		// IMPORTANT: don't commit your username and password to your repo!!!
@@ -37,10 +37,10 @@ public class GitHubRestClient {
 		String s = null;
 		if (state.equals("open")) {
 			s = BASE_URI + "?state=open";
-		} else if  (state.equals("closed")) {
+		} else if (state.equals("closed")) {
 			s = BASE_URI + "?state=closed";
-		} 
-		
+		}
+
 		HttpHost target = new HttpHost("api.github.com", 443, "https");
 		CredentialsProvider credsProvider = new BasicCredentialsProvider();
 		credsProvider.setCredentials(new AuthScope(target.getHostName(), target.getPort()),
