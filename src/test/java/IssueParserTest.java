@@ -1,4 +1,3 @@
-package issue;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,7 +10,7 @@ import org.junit.Test;
 
 public class IssueParserTest {
 	public String output = "";
-	public String str_output = "";
+	public String strOutput = "";
 
 	@Before
 	public void setUp() throws Exception {
@@ -21,9 +20,9 @@ public class IssueParserTest {
 					new FileReader("C:\\github-repos\\githubapi-issues-VenkataHarshita\\Sample-output.txt"));
 
 			while ((output = reader.readLine()) != null) {
-				str_output += output;
+				strOutput += output;
 			}
-			System.out.println(str_output);
+			System.out.println(strOutput);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -32,8 +31,8 @@ public class IssueParserTest {
 
 	@Test
 	public void testparseIssues() {
-		IssueParser issue_parser = new IssueParser();
-		List<Issue> is = issue_parser.parseIssues(str_output);
+		IssueParser issueParser = new IssueParser();
+		List<Issue> is = issueParser.parseIssues(strOutput);
 		Issue issue1 = new Issue();
 		User u1 = new User();
 

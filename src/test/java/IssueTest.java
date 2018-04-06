@@ -1,4 +1,4 @@
-package issue;
+
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -16,7 +16,6 @@ public class IssueTest {
 	
 	@Before
 	public void Set() throws Exception {
-
 		u1.setId(50);
 		u2.setId(50);
 		u1.setLogin("harshita");
