@@ -15,6 +15,7 @@ public class IssuesExporter {
 
 		IssuesExporter i = new IssuesExporter();
 		i.generateIssues();
+		
 	}
 
 	public void generateIssues() throws IOException {
