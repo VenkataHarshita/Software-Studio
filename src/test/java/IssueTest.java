@@ -72,9 +72,15 @@ public class IssueTest {
 				i1.toString());
 
 	}
+	
+	@Test(expected=NullPointerException.class)
+	public void testCompareToNull() {
+		i1.setId(45);
+		i1.compareTo(null);
+	}
 
 	@Test
-	public void testEqualsTo() {
+	public void testCompareToWhenEqualTo() {
 
 		i1.setId(42);
 		i2.setId(42);
@@ -84,7 +90,7 @@ public class IssueTest {
 	}
 
 	@Test
-	public void testGreater() {
+	public void testCompareToWhenGreaterThan() {
 		i1.setId(47);
 		i2.setId(42);
 		assertEquals(1, i1.compareTo(i2));
@@ -92,12 +98,18 @@ public class IssueTest {
 	}
 
 	@Test
-	public void testLessThan() {
+	public void testCompareToWhenLessThan() {
 
 		i1.setId(38);
 		i2.setId(42);
 		assertEquals(-1, i1.compareTo(i2));
 
+	}
+	
+	@Test(expected=NullPointerException.class)
+	public void testThrowException() {
+		Issue issue=new Issue();
+		issue.throwException();
 	}
 
 }

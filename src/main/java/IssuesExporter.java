@@ -27,21 +27,21 @@ public class IssuesExporter {
 		String password = scanner1.nextLine();
 		GitHubRestClient client = new GitHubRestClient();
 
-		String json = client.requestIssues(username, password, "open");
-		String json1 = client.requestIssues(username, password, "closed");
+		String jsonOpenIssue = client.requestIssues(username, password, "open");
+		String jsonClosedIssue = client.requestIssues(username, password, "closed");
 
 		IssueParser parser = new IssueParser();
 
-		List<Issue> closedissues = parser.parseIssues(json1);
-		List<Issue> openissues = parser.parseIssues(json);
-		openissues.addAll(closedissues);
-		Collections.sort(openissues);
+		List<Issue> closedIssues = parser.parseIssues(jsonClosedIssue);
+		List<Issue> openIssues = parser.parseIssues(jsonOpenIssue);
+		openIssues.addAll(closedIssues);
+		Collections.sort(openIssues);
 
-		for (Issue issue : openissues) {
+		for (Issue issue : openIssues) {
 			o.println(issue);
 		}
 
-		System.out.println("the size is" + openissues.size());
+		System.out.println("the size is :" + openIssues.size());
 		o.close();
 
 	}
