@@ -125,9 +125,12 @@ public class Issue implements Comparable<Issue> {
 
 
 	public int compareTo(Issue i) {
-		ArrayList<Issue> i1 = new ArrayList<Issue>();
+		//ArrayList<Issue> i1 = new ArrayList<Issue>();
 		
-		Collections.sort(i1);
+		//Collections.sort(i1);
+		if(i==null) {
+			throw new NullPointerException("null cant be compared");
+		}
 		if (this.id > i.id) {
 			return 1;
 
@@ -135,6 +138,12 @@ public class Issue implements Comparable<Issue> {
 			return -1;
 		}
 		return 0;
+		
+	}
+
+	public void throwException() {
+		throw new NullPointerException();
+		
 	}
 
 }

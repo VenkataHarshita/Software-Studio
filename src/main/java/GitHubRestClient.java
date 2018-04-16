@@ -1,5 +1,4 @@
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,7 +27,7 @@ public class GitHubRestClient {
 	public static void main(String[] args) {
 		GitHubRestClient prototype = new GitHubRestClient();
 		// IMPORTANT: don't commit your username and password to your repo!!!
-		String json = prototype.requestIssues("VenkataHarshita", "K0mandur1", "open");
+		String json = prototype.requestIssues("", "", "open");
 		System.out.println(json);
 	}
 
