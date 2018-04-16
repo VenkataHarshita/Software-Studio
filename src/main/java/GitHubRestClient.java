@@ -27,8 +27,8 @@ public class GitHubRestClient {
 	public static void main(String[] args) {
 		GitHubRestClient prototype = new GitHubRestClient();
 		// IMPORTANT: don't commit your username and password to your repo!!!
-		String json = prototype.requestIssues("", "", "open");
-		System.out.println(json);
+		String jsonOpenIssue = prototype.requestIssues("", "", "open");
+		System.out.println(jsonOpenIssue);
 	}
 
 	public String requestIssues(String username, String password, String state) {
